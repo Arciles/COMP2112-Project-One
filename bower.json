@@ -1,0 +1,22 @@
+{
+  "name": "Comp2112-Project-1",
+  "authors": [
+    "IBIS",
+    "Esat <esatibis@expertech.net>"
+  ],
+  "description": "Project One for Advance client side scripting",
+  "main": "",
+  "license": "MIT",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "bootstrap": "^3.3.7"
+  }
+}
