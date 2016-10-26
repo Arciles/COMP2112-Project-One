@@ -1,3 +1,7 @@
-form {
+form, section {
   padding-top: 50px;
+}
+.media-right i {
+  margin-top: 10px;
+  color: red;
 }
