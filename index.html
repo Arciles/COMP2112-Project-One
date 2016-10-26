@@ -8,32 +8,30 @@
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
   <title>COMP2112 - Project 1</title>
-
 </head>
 <body>
   <div class="container">
-    <h1>COMP2112 - Project One Survey</h1>
+    <h1>COMP2112 - Project One Todo List</h1>
     <div class="row">
-      <form action="get" class="col-sm-4">
+      <form action="get" class="col-sm-5 col-sm-offset-1">
       <fieldset class="form-group">
-        <label for="txtTest1">Test1 :</label>
-        <input type="text" id="txtTest1" class="form-control">
+        <label for="txtTitle">Todo Title :</label>
+        <input type="text" id="txtTitle" class="form-control">
       </fieldset>
       <fieldset class="form-group">
-        <label for="txtTest2">Test2 :</label>
-        <input type="text" id="txtTest2" class="form-control">
+        <label for="txtMessage">Todo Message :</label>
+        <textarea id="txtMessage" class="form-control"></textarea>
       </fieldset>
       <fieldset class="form-group">
-        <label for="txtTest3">Test3 :</label>
-        <input type="text" id="txtTest3" class="form-control">
+        <label for="txtDate">Date :</label>
+        <input type="date" id="txtDate" class="form-control">
       </fieldset>
-      <button type="submit" class="btn btn-success">Submit</button>
+      <button type="submit" class="btn btn-success">Save</button>
       </form>
-      <div class="progress">
-        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-          60%
-        </div>
-      </div>
+      <!-- this section is to display the todos  -->
+      <section class="col-sm-5">
+
+      </section>
     </div><!-- end of .row -->
   </div><!-- end of .container -->
   <script src="bower_components/jquery/dist/jquery.min.js"></script>
