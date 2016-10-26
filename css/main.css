@@ -5,3 +5,6 @@ form, section {
   margin-top: 10px;
   color: red;
 }
+.crossed {
+  text-decoration: line-through;
+}

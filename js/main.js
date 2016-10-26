@@ -21,25 +21,49 @@
     isDirty = true;
     // loop thru all the todos in the todos list
     jsonTodo.todos.forEach( function (todo, index) {
-      let todoTemplate =
-      `<div class="media" data-id="${todo.id}">
-          <div class="media-left">
+      console.log(todo);
+
+      // check todo is completed or not based on that add the crossed class
+      // TODO: change this if you can find a more elegant way to do it
+      if (todo.isCompleted == "true") {
+        let todoTemplate =
+        `<div class="media" data-id="${todo.id}">
+            <div class="media-left">
+              <a href="#">
+                <i class="fa fa-3x fa-check" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading crossed">${todo.title}</h4>
+              <p class="crossed">${todo.message}</p>
+            </div>
+            <div class="media-right">
             <a href="#">
-              <i class="fa fa-3x fa-check" aria-hidden="true"></i>
+              <i class="fa fa-2x fa-times" aria-hidden="true"></i>
             </a>
-          </div>
-          <div class="media-body">
-            <h4 class="media-heading">${todo.title}</h4>
-            <p>${todo.message}</p>
-          </div>
-          <div class="media-right">
-          <a href="#">
-            <i class="fa fa-2x fa-times" aria-hidden="true"></i>
-          </a>
-          </div>
-        </div>`;
-        todosSection.innerHTML += todoTemplate;
-      console.log(jsonTodo);
+            </div>
+          </div>`;
+          todosSection.innerHTML += todoTemplate;
+      } else {
+        let todoTemplate =
+        `<div class="media" data-id="${todo.id}">
+            <div class="media-left">
+              <a href="#">
+                <i class="fa fa-3x fa-chevron-right" aria-hidden="true"></i>
+              </a>
+            </div>
+            <div class="media-body">
+              <h4 class="media-heading">${todo.title}</h4>
+              <p>${todo.message}</p>
+            </div>
+            <div class="media-right">
+            <a href="#">
+              <i class="fa fa-2x fa-times" aria-hidden="true"></i>
+            </a>
+            </div>
+          </div>`;
+          todosSection.innerHTML += todoTemplate;
+      }
     });
 
   }
@@ -80,7 +104,5 @@
       form.reset();
       console.log(jsonTodo);
     }
-
   });
-
 })();
