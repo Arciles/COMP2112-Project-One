@@ -20,10 +20,10 @@
     todosSection.innerHTML = "";
     // chek jsonTodo if it's emty or not
     // display nothing to see message if it's emty
-    console.log(jsonTodo);
+    //console.log(jsonTodo);
+
     if (jsonTodo == null) {
-      let nothingToSee = `<h3>There is no TO-DO to display</h3>`;
-      todosSection.innerHTML = nothingToSee;
+      todosSection.innerHTML = `<h3>There is no TO-DO to display</h3>`;
       isDirty = true;
     } else {
       // Mark the document dirty so it can be ready to be written back when its needed
