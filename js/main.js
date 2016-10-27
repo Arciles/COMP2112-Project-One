@@ -13,7 +13,8 @@
     error: todoError
   });
 
-  function readAndRefreshTodos(todos) {
+  var readAndRefreshTodos = function (todos) {
+
     jsonTodo = JSON.parse(todos);
     let todosSection = document.querySelector('.panel-body');
     todosSection.innerHTML = "";
@@ -25,8 +26,9 @@
 
       // check todo is completed or not based on that add the crossed class
       // TODO: change this if you can find a more elegant way to do it
+      let todoTemplate;
       if (todo.isCompleted == "true") {
-        let todoTemplate =
+        todoTemplate =
         `<div class="media" data-id="${todo.id}">
             <div class="media-left">
               <a href="#">
@@ -43,9 +45,9 @@
             </a>
             </div>
           </div>`;
-          todosSection.innerHTML += todoTemplate;
+
       } else {
-        let todoTemplate =
+        todoTemplate =
         `<div class="media" data-id="${todo.id}">
             <div class="media-left">
               <a href="#">
@@ -62,11 +64,35 @@
             </a>
             </div>
           </div>`;
-          todosSection.innerHTML += todoTemplate;
       }
+      todosSection.innerHTML += todoTemplate;
+    });
+    
+  };
+
+  readAndRefreshTodos.when(function () {
+    var completedLinks = document.querySelectorAll('.media-left a');
+
+    console.log(completedLinks);
+    completedLinks.forEach(function (todoMedia) {
+      todoMedia.addEventListener('click',markAsCompleted);
     });
 
-  }
+    function markAsCompleted(event) {
+      let target = event.target;
+      let todoID = target.getAttribute('data-id');
+
+      // loop through the array the find the object contains the id
+      // and change to is completed based on the first state of the variable
+      jsonTodo.todos.forEach(function (todo) {
+        if(todo.id == todoID) {
+          todo.isCompleted = todo.isCompleted != "true";
+        }
+      });
+      readAndRefreshTodos(jsonTodo);
+    }
+  });
+
 
   function todoError(err) {
     // keep this just for debug
@@ -105,4 +131,5 @@
       console.log(jsonTodo);
     }
   });
+
 })();
