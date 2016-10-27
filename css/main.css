@@ -8,3 +8,7 @@ form, section {
 .crossed {
   text-decoration: line-through;
 }
+
+textarea {
+  resize: vertical;
+}
